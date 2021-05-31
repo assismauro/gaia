@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
+from gaiaapp.models import AlertasFlorestas
+from gaiaapp.views import createDoc
+
+from gaiaapp.views import alerta_florestas_dataset
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+#    url(r'^$', AlertasFlorestas , name='alertaflorestas'),
+    path('gaiaapp/<int:pk>/createdoc/', createDoc, name='create-doc'),
+    path('', admin.site.urls)
 ]
